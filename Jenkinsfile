@@ -14,23 +14,24 @@
 //Declarative
 pipeline {
 //    agent any
-    agent { docker { image 'maven:3.6.3'} }
-
+//    agent { docker { image 'maven:3.6.3'} }
+      agent { docker { image 'node:13.8'} }
   //  environment {
   //  		dockerHome = tool 'mydocker'
   //  		mavenHome = tool 'mymaven'
     //		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
  //   	}
     stages{
-        stage('Permissions') {
-                steps {
-                    sh 'chmod 775 *'
-                }
-    		}
+   //     stage('Permissions') {
+     //           steps {
+     //               sh 'chmod 775 *'
+      //          }
+    //		}
         stage('Build'){
             steps{
-                sh 'mvn --version'
-                sh 'docker version'
+            //    sh 'mvn --version'
+//                sh 'docker version'
+                sh 'node --version'
                 echo "Build"
             }
         }
