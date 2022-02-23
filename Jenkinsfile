@@ -16,11 +16,11 @@ pipeline {
     agent any
 //    agent { docker { image 'maven:3.6.3'} }
 //      agent { docker { image 'node:13.8'} }
-  //  environment {
-  //  		dockerHome = tool 'mydocker'
-  //  		mavenHome = tool 'mymaven'
-    //		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
- //   	}
+    environment {
+   		    dockerHome = tool 'mydocker'
+    		mavenHome = tool 'mymaven'
+    		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+    	}
     stages{
    //     stage('Permissions') {
      //           steps {
@@ -29,8 +29,8 @@ pipeline {
     //		}
         stage('Build'){
             steps{
-            //    sh 'mvn --version'
-//                sh 'docker version'
+                sh 'mvn --version'
+                sh 'docker version'
                // sh 'node --version'
                 echo "Build"
                 echo "$PATH"
